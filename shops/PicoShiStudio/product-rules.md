@@ -46,20 +46,93 @@ AI MAY change:
 - Supporting garments
 - Non-product props
 
-## Current Confirmed Hanger Dimensions
+## SKU Isolation Rule
 
-For the current wide-shoulder natural-wood hanger:
+Every new product must start with a fresh Product Facts block.
 
-- Overall width: 44.5 cm
-- Overall height: 25 cm
-- Shoulder thickness: 4.5 cm
+The current SKU's Product Facts override all older products and all template examples.
 
-These dimensions must not be altered in image generation or listing copy.
+Never inherit a previous SKU's:
+- width
+- height
+- shoulder thickness
+- wood species
+- hook material
+- color
+- set quantity
+- finish
+- capacity
+
+If the current SKU provides 44 × 25 cm with 5.5 cm shoulder thickness, then every image and listing for that SKU must use exactly those dimensions even if an older template example contains 44.5 × 25 cm / 4.5 cm.
+
+Unknown = TBD.
+
+## Execution Mode Upgrade
+
+### Product-truth images
+For IMAGE 02 / 03 / 04 / 05, default to **reference-preserving edit mode**, not free re-generation.
+
+The real product itself should be preserved as much as possible. Preferred operations:
+- remove / replace background
+- crop
+- rotate
+- reframe
+- duplicate the same real hanger
+- arrange multiple copies
+- add measurement arrows
+- create close-up crops
+- compose 2×2 details from the same real product
+
+Do not redraw the hanger from scratch unless unavoidable.
+
+### Lifestyle images
+For IMAGE 01 / 06 / 07, AI may generate a new scene, but the hanger must remain structurally locked to the real reference.
+
+### One image = one function
+Never let:
+- PRODUCT VIEW become a lifestyle scene
+- SIZE GUIDE become a collage
+- QUALITY DETAILS become a wardrobe scene
+- CLOSET STYLING become a close-up product shot
+
+Each slot must satisfy its assigned function before approval.
+
+## Pre-generation Checklist
+
+Before every image-generation call, restate internally:
+1. Shop = PicoShiStudio
+2. Current SKU = only the current uploaded product
+3. Current Product Facts = current SKU only
+4. Exact image function = one slot only
+5. Required number of hangers
+6. Required camera angle
+7. Required background / scene
+8. Forbidden content
+9. Product structure lock
+10. Output = 1:1 unless otherwise requested
+
+## Post-generation Approval Gate
+
+Reject and regenerate if any of the following is wrong:
+- wrong number of hangers
+- wrong template function
+- wrong dimensions
+- wrong shoulder thickness
+- altered shoulder curve
+- altered lower bar
+- altered hook
+- altered wood color / grain
+- impossible hanger / garment placement
+- merged or duplicated hardware
+- unexpected collage
+- unexpected text / numbering
+- wrong scene type
+
+Do not continue to the next image until the current image passes the approval gate.
 
 ## Product Facts Rule
 
 Only use confirmed facts for:
-
 - Wood species
 - Hook material
 - Surface coating / finish
