@@ -48,3 +48,6 @@ Create a square 1:1 lifestyle photograph of a person wearing the exact same bag 
 3. 是否始终只有一根连续肩带？
 4. 是否误加了内袋、五金、材质、尺寸、功能或未确认配色？
 5. 尺寸信息是否留空待人工填写？
+
+
+> 参考布局图：[etsy-layout-reference.png](assets/etsy-layout-reference.png)（来自本次对话，用于核对 Etsy 图片顺序与构图节奏；不作为产品结构或尺寸依据。）
